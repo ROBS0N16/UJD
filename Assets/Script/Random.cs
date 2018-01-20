@@ -8,11 +8,12 @@ public class Random : MonoBehaviour {
     private DateTime lastTime;
     public List<string> countries;
     private System.Random random;
+    public TextMesh textMesh;
 
 	// Use this for initialization
 	void Start () {
         lastTime = DateTime.Now;
-        random = System.Random();
+        random = new System.Random();
 	}
 
     // Update is called once per frame
@@ -22,6 +23,7 @@ public class Random : MonoBehaviour {
         {
             lastTime = DateTime.Now;
             country = countries[random.Next(countries.Count)];
+            textMesh.text = country;
         }
 	}
 }

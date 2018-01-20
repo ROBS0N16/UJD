@@ -1,0 +1,27 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System;
+
+public class Random : MonoBehaviour {
+    public int interval = 3;
+    private DateTime lastTime;
+    public List<string> countries;
+    private System.Random random;
+
+	// Use this for initialization
+	void Start () {
+        lastTime = DateTime.Now;
+        random = System.Random();
+	}
+
+    // Update is called once per frame
+    void Update() {
+        string country;
+        if (DateTime.Now > lastTime.Date.AddSeconds(interval))
+        {
+            lastTime = DateTime.Now;
+            country = countries[random.Next(countries.Count)];
+        }
+	}
+}
